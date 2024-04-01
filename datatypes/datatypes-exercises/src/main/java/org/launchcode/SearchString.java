@@ -18,8 +18,8 @@ public class SearchString {
         boolean check = alice.contains(term);
         System.out.println(check);
 
-        Integer index = alice.indexOf(term);
-        Integer length = term.length();
+        int index = alice.indexOf(term);
+        int length = term.length();
         System.out.println("Your search term first appears at index " + index + ". Your term is " + length + " characters long.");
         String modifiedAlice = alice.replace(term, "(YOUR TERM WAS HERE)");
         System.out.println(modifiedAlice);
