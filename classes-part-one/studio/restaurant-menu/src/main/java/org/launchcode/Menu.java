@@ -9,6 +9,7 @@ public class Menu {
     private LocalDate lastDate;
 
     public ArrayList<MenuItem> getMenuItems() {
+
         return menuItems;
     }
 }
