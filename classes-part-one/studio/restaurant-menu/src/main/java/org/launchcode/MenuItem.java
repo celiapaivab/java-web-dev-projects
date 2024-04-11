@@ -1,6 +1,7 @@
 package org.launchcode;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class MenuItem {
     private String name;
@@ -61,4 +62,32 @@ public class MenuItem {
 
         return date;
     }
+
+    boolean isNew(){
+        LocalDate today = LocalDate.now();
+        double daysBetween = getDate().until(today, ChronoUnit.DAYS);
+        return daysBetween < 180;
+    }
+
+    @Override
+    public String toString() {
+        String newText = isNew() ? " - NEW!" : "";
+        return name + newText + "\n" + description + "\n" + "$" + price;
+    }
+
+    @Override
+    public boolean equals(Object toBeCompared) {
+        if (toBeCompared == this) {
+            return true;
+        }
+        if (toBeCompared == null) {
+            return false;
+        }
+        if (toBeCompared.getClass() != getClass()) {
+            return false;
+        }
+        MenuItem item = (MenuItem) toBeCompared;
+        return this.name.equals(item.getName());
+    }
+
 }
